@@ -5,8 +5,8 @@
 	<!-- Script tag can also be placed here -->
 </head>
 <body>
-<p>Before the script...</p>
-<p id="demo" onkeypress="myFunction()">Click me to change my HTML content (innerHTML).</p>
+<p>js demo</p>
+<p id="demo" onkeypress="myFunction()">Use WASD to move.</p>
 
 <script>
 	var arr =[
@@ -14,19 +14,60 @@
 		[0,1,0],
 		[0,0,0]
 		]
+	var x = 1
+	var y = 1
 	document.addEventListener('keydown', logKey);
+
 		function logKey(e) {
 			arrText=""
+			if (`${e.code}` == "KeyW") {
+				moveW();
+			}
+			if (`${e.code}` == "KeyS") {
+				moveS();
+			}
+			if (`${e.code}` == "KeyD") {
+				moveD();
+			}
+			if (`${e.code}` == "KeyA") {
+				moveA();
+			}
 			for (var i = 0; i < arr.length; i++) {
 				for (var j = 0; j < arr[i].length; j++) {
 					arrText+=arr[i][j]+' ';
 				}
 				arrText+="<br>"
 			}
-			document.getElementById("demo").innerHTML = "char = " + `${e.code}` + " arrText = <br>" + arrText
+			document.getElementById("demo").innerHTML = "char = " + `${e.code}` + " arrText = <br>" + arrText + 
+			"x = " + x + "y = " + y
+		}
+		function moveW() {
+			arr[x][y] = 0;
+			x = (x - 1) % 3;
+			if ( x < 0 ) {
+				x = x + 3
+			}
+			arr[x][y] = 1;
+		}
+		function moveS() {
+			arr[x][y] = 0;
+			x = (x + 1) % 3;
+			arr[x][y] = 1;
+		}
+		function moveD() {
+			arr[x][y] = 0;
+			y = (y + 1) % 3;
+			arr[x][y] = 1;
+		}
+		function moveA() {
+			arr[x][y] = 0;
+			y = (y - 1) % 3;
+			if ( y < 0 ) {
+				y = y + 3;
+			}
+			arr[x][y] = 1;
 		}
 </script>
 
-<p>...After the script.</p>
 </body>
 </html>
