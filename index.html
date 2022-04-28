@@ -4,49 +4,58 @@
 	<title></title>
 	<!-- Script tag can also be placed here -->
 </head>
-<body>
-<p>js demo</p>
-<p id="demo" onkeypress="myFunction()">Use WASD to move.</p>
+<body bgcolor="000000" text="00bfb2">
+<style>
+ body {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+</style>
+<p style="margin:0;font-size:0" id="demo" onkeypress="myFunction()"><img src="blue.png"></p>
 
 <script>
-	var arr =[
-		[0,0,0],
-		[0,1,0],
-		[0,0,0]
-		]
-	var x = 1
-	var y = 1
+	alert("WASD to move");
+	const DIMX = 5;
+	const DIMY = 5;
+	var x = DIMX / 2 | 0;
+	var y = DIMY / 2 | 0;
 	document.addEventListener('keydown', logKey);
 
-		function logKey(e) {
-			arrText=""
-			if (`${e.code}` == "KeyW") {
-				move(2,0);
-			}
-			if (`${e.code}` == "KeyS") {
-				move(1,0);
-			}
-			if (`${e.code}` == "KeyD") {
-				move(0,1);
-			}
-			if (`${e.code}` == "KeyA") {
-				move(0,2);
-			}
-			for (var i = 0; i < arr.length; i++) {
-				for (var j = 0; j < arr[i].length; j++) {
-					arrText+=arr[i][j]+' ';
+	function logKey(e) {
+		arrText=""
+		if (`${e.code}` == "KeyW") {
+			move(-1,0);
+		}
+		if (`${e.code}` == "KeyS") {
+			move(1,0);
+		}
+		if (`${e.code}` == "KeyD") {
+			move(0,1);
+		}
+		if (`${e.code}` == "KeyA") {
+			move(0,-1);
+		}
+		arrText="\t<div class=\"row\">\n";
+		for (var i = 0; i < DIMX; i++) {
+			arrText+="\t\t<div class=\"column\">";
+			for (var j = 0; j < DIMY; j++) {
+				if (x == i && y == j) {
+					arrText+="\t\t\t<img src=\"blue.png\">\n";
+				} else {
+					arrText+="\t\t\t<img src=\"blak.png\">\n";
 				}
-				arrText+="<br>"
 			}
-			document.getElementById("demo").innerHTML = "char = " + `${e.code}` + ", arrText = <br>" + arrText + 
-			"x = " + x + ", y = " + y
+			arrText+="\t\t</div>\n";
 		}
-		function move(a,b) {
-			arr[x][y] = 0;
-			x = (x + a) % 3;
-			y = (y + b) % 3;
-			arr[x][y] = 1;
-		}
+		arrText+="\t</div>\n";
+		document.getElementById("demo").innerHTML = arrText;
+	}
+	function move(a,b) {
+		x = (x + a + DIMX) % DIMX;
+		y = (y + b + DIMY) % DIMY;
+	}
 </script>
 
 </body>
