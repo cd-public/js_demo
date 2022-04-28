@@ -14,15 +14,15 @@
 }
 </style>
 
-<audio id="audio" controls style="display:none">
-  <source src="arts/audi/cave.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+<audio id="audio" controls loop style="display:none">
+	<source src="arts/audi/cave.mp3" type="audio/mpeg"> Your browser does not support the audio element.
 </audio>
 
 <p style="margin:0;font-size:0" id="demo" onkeypress="myFunction()"><img src="arts/visu/blue.png"></p>
 
 <script>
-	const DIMX = 5;
-	const DIMY = 5;
+	const DIMX = 9;
+	const DIMY = 9;
 	var x = DIMX / 2 | 0;
 	var y = DIMY / 2 | 0;
 	var init = 0;
@@ -31,16 +31,16 @@
 	function logKey(e) {
 		document.getElementById('audio').play();
 		arrText=""
-		if (`${e.code}` == "KeyW") {
+		if (`${e.code}` == "KeyW" || `${e.code}` == "ArrowUp") {
 			move(-1,0);
 		}
-		if (`${e.code}` == "KeyS") {
+		if (`${e.code}` == "KeyS" || `${e.code}` == "ArrowDown") {
 			move(1,0);
 		}
-		if (`${e.code}` == "KeyD") {
+		if (`${e.code}` == "KeyD" || `${e.code}` == "ArrowRight") {
 			move(0,1);
 		}
-		if (`${e.code}` == "KeyA") {
+		if (`${e.code}` == "KeyA" || `${e.code}` == "ArrowLeft") {
 			move(0,-1);
 		}
 		arrText="\t<div class=\"row\">\n";
