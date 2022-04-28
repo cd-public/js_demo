@@ -13,17 +13,23 @@
 	transform: translate(-50%, -50%);
 }
 </style>
-<p style="margin:0;font-size:0" id="demo" onkeypress="myFunction()"><img src="blue.png"></p>
+
+<audio id="audio" controls style="display:none">
+  <source src="arts/audi/cave.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+
+<p style="margin:0;font-size:0" id="demo" onkeypress="myFunction()"><img src="arts/visu/blue.png"></p>
 
 <script>
-	alert("WASD to move");
 	const DIMX = 5;
 	const DIMY = 5;
 	var x = DIMX / 2 | 0;
 	var y = DIMY / 2 | 0;
+	var init = 0;
 	document.addEventListener('keydown', logKey);
 
 	function logKey(e) {
+		document.getElementById('audio').play();
 		arrText=""
 		if (`${e.code}` == "KeyW") {
 			move(-1,0);
@@ -42,9 +48,9 @@
 			arrText+="\t\t<div class=\"column\">";
 			for (var j = 0; j < DIMY; j++) {
 				if (x == i && y == j) {
-					arrText+="\t\t\t<img src=\"blue.png\">\n";
+					arrText+="\t\t\t<img src=\"arts/visu/blue.png\">\n";
 				} else {
-					arrText+="\t\t\t<img src=\"blak.png\">\n";
+					arrText+="\t\t\t<img src=\"arts/visu/blak.png\">\n";
 				}
 			}
 			arrText+="\t\t</div>\n";
