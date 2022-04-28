@@ -1,26 +1,32 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title></title>
-  <!-- Script tag can also be placed here -->
+	<title></title>
+	<!-- Script tag can also be placed here -->
 </head>
 <body>
-  
-    
-  
 <p>Before the script...</p>
-  
-  
-  <!-- Script tag inside the body -->
-  <script>
-    document.write('Hello World');
-  </script>
-  
-    
-  
+<p id="demo" onkeypress="myFunction()">Click me to change my HTML content (innerHTML).</p>
+
+<script>
+	var arr =[
+		[0,0,0],
+		[0,1,0],
+		[0,0,0]
+		]
+	document.addEventListener('keydown', logKey);
+		function logKey(e) {
+			arrText=""
+			for (var i = 0; i < arr.length; i++) {
+				for (var j = 0; j < arr[i].length; j++) {
+					arrText+=arr[i][j]+' ';
+				}
+				arrText+="<br>"
+			}
+			document.getElementById("demo").innerHTML = "char = " + `${e.code}` + " arrText = <br>" + arrText
+		}
+</script>
+
 <p>...After the script.</p>
-  
-  
-  
 </body>
 </html>
