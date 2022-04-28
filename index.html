@@ -43,10 +43,7 @@
 		}
 		function moveW() {
 			arr[x][y] = 0;
-			x = (x - 1) % 3;
-			if ( x < 0 ) {
-				x = x + 3
-			}
+			x = (x + 2) % 3;
 			arr[x][y] = 1;
 		}
 		function moveS() {
@@ -61,10 +58,7 @@
 		}
 		function moveA() {
 			arr[x][y] = 0;
-			y = (y - 1) % 3;
-			if ( y < 0 ) {
-				y = y + 3;
-			}
+			y = (y + 2) % 3;
 			arr[x][y] = 1;
 		}
 </script>
