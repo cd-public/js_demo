@@ -1,10 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title></title>
-	<!-- Script tag can also be placed here -->
+<link rel="stylesheet" href="code/main.css" />
 </head>
-<body bgcolor="000000" text="00bfb2"> <!-- we'll need a real background evet -->
+<body>
 
 <audio id="audi" controls loop style="display:none">
 	<source src="arts/audi/cave.mp3" type="audio/mpeg"> Your browser does not support the audio element.
@@ -12,13 +11,17 @@
 
 <text id="dbug"></text>
 
+<div id="bkgd">
+	<img style = "width: 100%" src="arts/visu/mako/tile.png">
+</div>
 
-<p id="zone" onkeypress="myFunction()"><text>Press a directional key to begin.</text></p>
+<div id="zone" onkeypress="myFunction()"></div>
 
+<div id="plyr" >
+	<img src="blue.png">
+</div>
 
-<img style = "position: fixed ; top: 50% ; left: 50% ; transform: translate(-50%,-50%) ; " id="plyr" src="blue.png">
-
-<script type="text/javascript" src="code.js"></script>
+<script type="text/javascript" src="code/code.js"></script>
 
 </body>
 </html>
