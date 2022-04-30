@@ -4,8 +4,7 @@
 	<title></title>
 	<!-- Script tag can also be placed here -->
 </head>
-<body bgcolor="000000" text="00bfb2"> <!-- 0F0F0F for debug, 0 otherwise -->
-<body bgcolor="000000" text="00bfb2"> <!-- 0F0F0F for debug, 0 otherwise -->
+<body bgcolor="000000" text="00bfb2"> <!-- we'll need a real background evet -->
 <style>
 wrld {
 	position: fixed ;
@@ -13,7 +12,7 @@ wrld {
 	left: 50% ;
 	transform: translate(-50%, -50%) ;
 	margin:0 ;
-	font-size:0 ;  <!-- 1 for debug, 0 otherwise -->
+	font-size:1 ;  <!-- 1 for debug, 0 otherwise -->
 }
 </style>
 
@@ -21,11 +20,11 @@ wrld {
 	<source src="arts/audi/cave.mp3" type="audio/mpeg"> Your browser does not support the audio element.
 </audio>
 
-<wrld><p id="demo" onkeypress="myFunction()"><img src="arts/visu/blue.png"></p></wrld>
+<wrld><p id="demo" onkeypress="myFunction()"><text>Press a directional key to begin.</p></wrld>
 
 <script>
-	const DIMX = 9 ;
-	const DIMY = 9 ;
+	const DIMX = 7 ;
+	const DIMY = 7 ;
 	var x = DIMX / 2 | 0 ;
 	var y = DIMY / 2 | 0 ;
 	document.addEventListener('keydown', logKey) ;
