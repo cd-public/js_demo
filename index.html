@@ -4,63 +4,68 @@
 	<title></title>
 	<!-- Script tag can also be placed here -->
 </head>
-<body bgcolor="000000" text="00bfb2">
+<body bgcolor="000000" text="00bfb2"> <!-- 0F0F0F for debug, 0 otherwise -->
+<body bgcolor="000000" text="00bfb2"> <!-- 0F0F0F for debug, 0 otherwise -->
 <style>
- body {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+wrld {
+	position: fixed ;
+	top: 50% ;
+	left: 50% ;
+	transform: translate(-50%, -50%) ;
+	margin:0 ;
+	font-size:0 ;  <!-- 1 for debug, 0 otherwise -->
 }
 </style>
 
-<audio id="audio" controls loop style="display:none">
+<audio id="audi" controls loop style="display:none">
 	<source src="arts/audi/cave.mp3" type="audio/mpeg"> Your browser does not support the audio element.
 </audio>
 
-<p style="margin:0;font-size:0" id="demo" onkeypress="myFunction()"><img src="arts/visu/blue.png"></p>
+<wrld><p id="demo" onkeypress="myFunction()"><img src="arts/visu/blue.png"></p></wrld>
 
 <script>
-	const DIMX = 9;
-	const DIMY = 9;
-	var x = DIMX / 2 | 0;
-	var y = DIMY / 2 | 0;
-	var init = 0;
-	document.addEventListener('keydown', logKey);
+	const DIMX = 9 ;
+	const DIMY = 9 ;
+	var x = DIMX / 2 | 0 ;
+	var y = DIMY / 2 | 0 ;
+	document.addEventListener('keydown', logKey) ;
 
 	function logKey(e) {
-		document.getElementById('audio').play();
-		arrText=""
-		if (`${e.code}` == "KeyW" || `${e.code}` == "ArrowUp") {
-			move(-1,0);
+		document.getElementById('audi').play() ;
+		t = "" ;
+		k = `${e.code}` ;
+		if (k == "KeyW" || k == "ArrowUp") {
+			move(-1,0) ;
 		}
-		if (`${e.code}` == "KeyS" || `${e.code}` == "ArrowDown") {
-			move(1,0);
+		if (k == "KeyS" || k == "ArrowDown") {
+			move(1,0) ;
 		}
-		if (`${e.code}` == "KeyD" || `${e.code}` == "ArrowRight") {
-			move(0,1);
+		if (k == "KeyD" || k == "ArrowRight") {
+			move(0,1) ;
 		}
-		if (`${e.code}` == "KeyA" || `${e.code}` == "ArrowLeft") {
-			move(0,-1);
+		if (k == "KeyA" || k == "ArrowLeft") {
+			move(0,-1) ;
 		}
-		arrText="\t<div class=\"row\">\n";
-		for (var i = 0; i < DIMX; i++) {
-			arrText+="\t\t<div class=\"column\">";
-			for (var j = 0; j < DIMY; j++) {
+		t="<div class=\"row\">" ;
+		for (var i = 0 ; i < DIMX ; i++) {
+			t+="<div class=\"column\">" ;
+			for (var j = 0 ; j < DIMY ; j++) {
+				t+="<img style = \"filter: brightness(50%)\" src=\"arts/visu/" ;
 				if (x == i && y == j) {
-					arrText+="\t\t\t<img src=\"arts/visu/blue.png\">\n";
+					t+="blue" ;
 				} else {
-					arrText+="\t\t\t<img src=\"arts/visu/blak.png\">\n";
+					t+="mako" ;
 				}
+				t+=".png\"> " ;
 			}
-			arrText+="\t\t</div>\n";
+			t+="</div>" ;
 		}
-		arrText+="\t</div>\n";
-		document.getElementById("demo").innerHTML = arrText;
+		t+="</div>" ;
+		document.getElementById("demo").innerHTML = t ;
 	}
 	function move(a,b) {
-		x = (x + a + DIMX) % DIMX;
-		y = (y + b + DIMY) % DIMY;
+		x = (x + a + DIMX) % DIMX ;
+		y = (y + b + DIMY) % DIMY ;
 	}
 </script>
 
