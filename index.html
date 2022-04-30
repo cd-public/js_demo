@@ -5,69 +5,20 @@
 	<!-- Script tag can also be placed here -->
 </head>
 <body bgcolor="000000" text="00bfb2"> <!-- we'll need a real background evet -->
-<style>
-wrld {
-	position: fixed ;
-	top: 50% ;
-	left: 50% ;
-	transform: translate(-50%, -50%) ;
-	margin:0 ;
-	font-size:1 ;  <!-- 1 for debug, 0 otherwise -->
-}
-</style>
 
 <audio id="audi" controls loop style="display:none">
 	<source src="arts/audi/cave.mp3" type="audio/mpeg"> Your browser does not support the audio element.
 </audio>
 
-<wrld><p id="demo" onkeypress="myFunction()"><text>Press a directional key to begin.</p></wrld>
+<text id="dbug"></text>
 
-<script>
-	const DIMX = 7 ;
-	const DIMY = 7 ;
-	var x = DIMX / 2 | 0 ;
-	var y = DIMY / 2 | 0 ;
-	document.addEventListener('keydown', logKey) ;
 
-	function logKey(e) {
-		document.getElementById('audi').play() ;
-		t = "" ;
-		k = `${e.code}` ;
-		if (k == "KeyW" || k == "ArrowUp") {
-			move(-1,0) ;
-		}
-		if (k == "KeyS" || k == "ArrowDown") {
-			move(1,0) ;
-		}
-		if (k == "KeyD" || k == "ArrowRight") {
-			move(0,1) ;
-		}
-		if (k == "KeyA" || k == "ArrowLeft") {
-			move(0,-1) ;
-		}
-		t="<div class=\"row\">" ;
-		for (var i = 0 ; i < DIMX ; i++) {
-			t+="<div class=\"column\">" ;
-			for (var j = 0 ; j < DIMY ; j++) {
-				if (x == i && y == j) {
-					t+="<img src=\"arts/visu/" ;
-					t+="blue" ;
-				} else {
-					t+="<img style = \"filter: brightness(50%)\" src=\"arts/visu/" ;
-					t+="mako" ;
-				}
-				t+=".png\"> " ;
-			}
-			t+="</div>" ;
-		}
-		t+="</div>" ;
-		document.getElementById("demo").innerHTML = t ;
-	}
-	function move(a,b) {
-		x = (x + a + DIMX) % DIMX ;
-		y = (y + b + DIMY) % DIMY ;
-	}
-</script>
+<p id="zone" onkeypress="myFunction()"><text>Press a directional key to begin.</text></p>
+
+
+<img style = "position: fixed ; top: 50% ; left: 50% ; transform: translate(-50%,-50%) ; " id="plyr" src="blue.png">
+
+<script type="text/javascript" src="code.js"></script>
 
 </body>
 </html>

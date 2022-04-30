@@ -13,7 +13,7 @@ PIXS = 64
 def save(name,pxls):
 	aray = np.array(pxls, dtype=np.uint8)
 	imag = Image.fromarray(aray)
-	imag.save("../" + name + ".png")
+	imag.save(name + ".png")
 	
 def savs(name,pxss):
 	for i in range(len(CMPS)):
@@ -51,7 +51,7 @@ def tile():
 				i, d = indx, newd
 		return i
 
-	xsys = [random.randint(0,64) for _ in range(2 * PIXS)]
+	xsys = [random.randint(0,64) for _ in range(2 * PIXS * PIXS.bit_length())]
 	xsys = sorted(xsys[:PIXS]) + xsys[PIXS:] # break up center clumping
 	xsys = [xsys[i::PIXS] for i in range(PIXS)]
 	clrs = [random.randint(0,255) for _ in range(PIXS)] # associate color with point

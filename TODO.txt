@@ -1,0 +1,7 @@
+# TODO.txt
+
+entry/exit tiles
+player sprite
+random level generation
+bounds checking
+level change
