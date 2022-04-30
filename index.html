@@ -50,10 +50,11 @@ wrld {
 		for (var i = 0 ; i < DIMX ; i++) {
 			t+="<div class=\"column\">" ;
 			for (var j = 0 ; j < DIMY ; j++) {
-				t+="<img style = \"filter: brightness(50%)\" src=\"arts/visu/" ;
 				if (x == i && y == j) {
+					t+="<img src=\"arts/visu/" ;
 					t+="blue" ;
 				} else {
+					t+="<img style = \"filter: brightness(50%)\" src=\"arts/visu/" ;
 					t+="mako" ;
 				}
 				t+=".png\"> " ;
