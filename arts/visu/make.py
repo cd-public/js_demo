@@ -8,7 +8,7 @@ import random
 # I'll want to order these cool to warm at some point I think
 CMPS = ["rocket", "mako", "flare", "crest", "viridis", "plasma", "inferno", "magma", "cividis"]
 
-PIXS = 64
+PIXS = 0x40
 
 def save(name,pxls):
 	aray = np.array(pxls, dtype=np.uint8)
@@ -30,18 +30,20 @@ def mcmp(vals):
 	pxss = []
 	for i in range(len(CMPS)):
 		cmap = sns.color_palette(CMPS[i], as_cmap=True)
-		pxls = [[[255 * c for c in cmap(vals[i][j])] for i in range(PIXS)] for j in range(PIXS)]
+		pxls = [[[0x100 * c for c in cmap(vals[i][j])] for i in range(PIXS)] for j in range(PIXS)]
 		pxss.append(pxls)
 	return pxss
-		
+
+
+# we do distance squared to avoid a square root
+def dist(pnt,ref):
+	#ds = [print(abs(pnt[i]-ref[i]), abs((0x100+pnt[i])-ref[i])%0x100) for i in [0,1]]
+	ds = [pnt[i]-ref[i] for i in [0,1]]
+	return sum([d * d for d in ds]) 
+
 # creates tiles with regions of contiguous color
 def tile():
-	# we do distance squared to avoid a square root
-	# we also wrap around
-	def dist(pnt,ref):
-		#ds = [print(abs(pnt[i]-ref[i]), abs((255+pnt[i])-ref[i])%255) for i in [0,1]]
-		ds = [pnt[i]-ref[i] for i in [0,1]]
-		return sum([d * d for d in ds]) 
+
 	# nearest
 	def near(x,y):
 		i, d = 0, dist(xsys[0],[x,y])
@@ -51,13 +53,22 @@ def tile():
 				i, d = indx, newd
 		return i
 
-	xsys = [random.randint(0,64) for _ in range(2 * PIXS * PIXS.bit_length())]
+	xsys = [random.randint(0,PIXS) for _ in range(2 * PIXS * PIXS.bit_length())]
 	xsys = sorted(xsys[:PIXS]) + xsys[PIXS:] # break up center clumping
 	xsys = [xsys[i::PIXS] for i in range(PIXS)]
-	clrs = [random.randint(0,255) for _ in range(PIXS)] # associate color with point
+	clrs = [random.randint(0,0x100) for _ in range(PIXS)] # associate color with point
 	vals = [[clrs[near(x,y)] for x in range(PIXS)] for y in range(PIXS)]
 	savs("tile",mcmp(vals))
 
+# entr exit together
+def entr():
+	# vals = [[dist([x,y],[PIXS // 2, PIXS // 2]) ** .5 for x in range(PIXS)] for y in range(PIXS)]
+	vals = [[(abs(x - PIXS // 2) + abs(y - PIXS // 2)) * (0x100 // PIXS) for x in range(PIXS)] for y in range(PIXS)]
+	print(vals)
+	savs("entr",mcmp(vals))
+	vals = [[0x100 - n for n in innr] for innr in vals]
+	savs("exit",mcmp(vals))
+
 # hxbx("blue","00bfb2")
 # hxbx("blak","000000")
-tile()
+entr()
