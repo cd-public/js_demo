@@ -6,7 +6,7 @@ body{
 #bkgd{
 	position: fixed ; 
 	width: 100% ; 
-	filter: blur(1rem) brightness(25%) ; 
+	filter: blur(75px) brightness(25%) ; 
 	top: 25% ; 
 	left: 25% ; 
 	transform: translate(-50%,-50%) ;
