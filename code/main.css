@@ -19,8 +19,24 @@ body{
 	transform: translate(-50%,-50%) ;
 }
 
+#zone{
+	position: fixed ; 
+	top: 50% ; 
+	left: 50% ; 
+	transform: translate(-50%,-50%) ;
+}
+
+#dbug{
+	position: fixed ; 
+	top: 0% ; 
+	left: 0% ; 
+	background-color: #FFFFFF ;
+	color="#000000" ;
+}
+
 .rotate {
 	animation: rotation 128s infinite linear;
+	width: 150% ;
 }
 
 @keyframes rotation {

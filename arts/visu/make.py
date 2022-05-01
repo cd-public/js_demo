@@ -25,12 +25,18 @@ def hxbx(name, hval):
 	pxls = [[colr for _ in range(PIXS)] for _ in range(PIXS)]
 	save(name,pxls)
 	
+
+def empt():
+	save("empt",[[(0,0,0,0) for _ in range(PIXS)] for _ in range(PIXS)])
+	
+	
 # map color maps from value array for all cmaps
 def mcmp(vals):
 	pxss = []
 	for i in range(len(CMPS)):
 		cmap = sns.color_palette(CMPS[i], as_cmap=True)
-		pxls = [[[0x100 * c for c in cmap(vals[i][j])] for i in range(PIXS)] for j in range(PIXS)]
+		pxls = [[[0x100 * c for c in cmap(vals[i][j])[:3]] for i in range(PIXS)] for j in range(PIXS)]
+		print(pxls) # seemingly a load-bearing print
 		pxss.append(pxls)
 	return pxss
 
@@ -63,12 +69,21 @@ def tile():
 # entr exit together
 def entr():
 	# vals = [[dist([x,y],[PIXS // 2, PIXS // 2]) ** .5 for x in range(PIXS)] for y in range(PIXS)]
-	vals = [[(abs(x - PIXS // 2) + abs(y - PIXS // 2)) * (0x100 // PIXS) for x in range(PIXS)] for y in range(PIXS)]
-	print(vals)
+	vals = [[(abs(PIXS // 2 - x) + abs(PIXS // 2 - y)) // 0x8 * 0x800 // PIXS for x in range(PIXS)] for y in range(PIXS)]
 	savs("entr",mcmp(vals))
 	vals = [[0x100 - n for n in innr] for innr in vals]
 	savs("exit",mcmp(vals))
 
-# hxbx("blue","00bfb2")
-# hxbx("blak","000000")
-entr()
+def plyr():
+	numf = 0x20 # number of frames
+	for i in range(len(CMPS)):
+		cmap = sns.color_palette(CMPS[i], as_cmap=True)
+		frms = [[[dist([i,j],[PIXS//2,PIXS//2]) * fram // numf * PIXS // 0x100 for i in range(PIXS)] for j in range(PIXS)] for fram in range(numf)]
+		frms = [[[[0x100 * c for c in cmap(val)][:3] for val in row] for row in fram] for fram in frms]
+		arrs = [np.array(fram, dtype=np.uint8) for fram in frms]
+		imgs = [Image.fromarray(aray) for aray in arrs]
+		imag = imgs[numf//2]
+		imgs = imgs[numf//2:] + imgs[:numf//2:-1]
+		imag.save(CMPS[i][:4]+"/plyr.gif", save_all=True, append_images=imgs, loop=0)
+		
+empt()

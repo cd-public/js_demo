@@ -1,7 +1,6 @@
 # TODO.txt
 
-entry/exit tiles
-player sprite
+anchor in ref, move in pix
 random level generation
 bounds checking
 level change
