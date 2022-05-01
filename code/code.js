@@ -56,16 +56,16 @@ function zpre() {
 	ztxt =  "<div style = \"position: fixed ; filter: brightness(50%) ; font-size: 0 ; " ;
 	ztxt += "width: "  + xpix + "px ; " ; 
 	ztxt += "height: " + ypix + "px ; " ;
-	ztxt += "transform: translate(-32px,-32px) translate(" ;
+	ztxt += "transform: translate(" ;
 	return ztxt ;
 }
 
 function levl() {
 	// reset attributes 
 	document.getElementById('audi').play() ;
-	posx = 0 ;
-	posy = 0 ;
-	zpos = posx.toString() + "px, -" + posy.toString() + "px) ; \" class=\"row\">" ;
+	posx = -32 ;
+	posy = -32 ;
+	zpos = posx.toString() + "px, " + posy.toString() + "px) ; \" class=\"row\">" ;
 	// build zone array
 	
 	
