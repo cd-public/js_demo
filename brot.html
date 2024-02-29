@@ -1,0 +1,58 @@
+<head>
+
+<script>
+function step(z,c)
+{
+    const a = z[0], b = z[1] ;
+    return [a*a - b*b + c[0], 2*a*b + c[1]] ;
+}
+
+function escp(z)
+{
+    return z[0]*z[0]+z[1]*z[1] > 4
+}
+
+function mset(z, iter)
+{
+    const c = [z[0],z[1]] ;
+    while (iter--)
+    {
+        z = step(z,c) ;
+        if (escp(z))
+        {
+            return false ;
+        }
+    }
+    return true ;
+}
+
+iters = 0 ;
+
+function draw()
+{
+    const plot = document.getElementById("plot") ;
+    const ctx = plot.getContext("2d");
+    var i, j ;
+    var c ;
+    iters = iters + 1 ;
+    // ctx.fillStyle = "white";
+    // ctx.fillRect(0, 0, 1024, 1024) ;
+    ctx.fillStyle = "#" + (iters * 2).toString(16)+(iters * 4).toString(16)+(iters * 8).toString(16) ;
+    for ( i = 0 ; i < 1024 ; i++ )
+    {
+        for ( j = 0 ; j < 1024 ; j++ )
+        {
+            c = [(i - 512) / 256,(j - 512) / 256] ;
+            if (mset(c, iters))
+            {
+                ctx.fillRect(i, j, 1, 1) ;
+            }
+        }
+    }
+}</script>
+</head>
+<body style="background-color:gray">
+<span style="vertical-align:middle;" onclick="draw();">
+  <canvas id="plot"  width="1024" height="1024" style="background-color:white"></canvas>
+</span>
+</body>
