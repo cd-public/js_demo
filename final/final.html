@@ -227,7 +227,7 @@ print(roja.get_color_at(500,500)</code></pre><hr><pre><code>4292545043</code></p
                             <center><img height="300" src="imgs/square.png"></center>
                             <h4>3b. <code>resize</code> (10 pts)</h4>
                             <p>Not all of the images will be the exact size as our GWINDOW, but it would be nice if they were. There are many ways to solve this problem, here I will describe one.
-                            <p>One way to resize images is a pixel array of the appropriate size and loop over the entire array, selecting pixels from the original sized image that are in the same relative (e.g. percentage) distance across the image in height and width, but may have a different row-by-col location as the numbers of rows differs.
+                            <p>One way to resize images is via a pixel array of the appropriate size and looping over the entire array, selecting pixels from the original sized image that are in the same relative (e.g. percentage) distance across the image in height and width, but may have a different row-by-col location as the numbers of rows differs.
                             <p>For example, the above image is 448 by 448 pixels, and there is a patch of teal in the center of the image, at around 200-250 by 200-250 pixels. In a 700 by 700 image, that teal patch should be around 300-350 pixels, or so.
                             <h4>3. Finishing Touches</h4>
                             <em>Of note, you can test squaring and resizing separately prior to this step by simply displaying the pixel arrays as GImages in the GWindow</em>
