@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Final Exam</title>
+		<style>
+        body {
+            font-size: 1.5em ;
+        }
+		.page {
+			width: 11.5in ;
+			margin: auto ;
+		}
+		.page_outer {
+			width: 11in;
+			box-shadow: -.1in -.1in .25in darkgray, .1in .1in .25in gray;
+			position: relative ;
+		}
+		.page_inner{
+			margin: 1in;  
+			margin-top: .5in;  
+		}
+        .details, .show, .hide:target {
+            display: none;
+        }
+        .hide:target + .show, .hide:target ~ .details {
+            display: block;
+        }
+        table, th, td {
+          border: 1px solid white;
+          border-collapse: collapse;
+        }
+		</style>
+		<style type="text/css" media="print">
+			.page {
+				width: 8.5in;
+				height: 11in;
+				margin: auto ;
+			}
+			.page_outer {
+				box-shadow: none;
+			}
+			a {
+				color: black;
+				text-decoration-line: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+			<div class="page_outer">
+				<div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+				<div class="page_inner"><center>
+					<h4>CS 151: Intro to Programming in Python</h4>
+					<h1>Final Exam</h1>
+                    <h3>3 hours</h3>
+                    <p>Github Classroom Link: https://classroom.github.com/a/ + ???
+                    <hr>
+                    </center>
+					<p>A cumulative coding exercise over Python including tracing, classes, data structures, and files.
+                    </center><hr>
+                    <div>
+                        <a id="hidea" href="#hidea" class="hide"><h3>A. Intro [Show]</h3></a>
+                        <a id="showa" href="#showa" class="show"><h3>A. Intro [Hide]</h3></a>
+                        <div class="details">
+                            <h2>Intro</h2>
+                            <p>This will be a project-style final exam, restricted to be completable in 3 hours.
+                            <p>There are 5 milestones corresponding to exam problems:
+                            <ul>
+                                <li>Prob0 is "Defining Classes"
+                                <li>Prob1 is "Reading Python"
+                                <li>Prob2 is "Interactive Graphics"
+                                <li>Prob3 is "Fundamental Python"
+                                <li>Prob4 is "Strings and Files"
+                            </ul>
+                            <p>After focusing this term on many of the famous historical computer scientists who programmed computers, this assignment focuses on the people and the land that make physical computing devices. It is centered on the plurinational state of Bolivia and whose lithium mines and miners form a critical part of the global technology landscape, specifically a flag used by the peoples that live within those mountains and work within thoe mines.
+                            <p>The people of Andes have been fighting to maintain self-determination (what people in the US often call "independence") in the face of large US-based tech companies for years, and we should be cognizant of their struggle and their story.
+                            <p>You can read more in imgs/README.md at your leisure.
+                        </div>
+                    </div>
+					<hr>
+                    <div>
+                        <a id="hideb" href="#hideb" class="hide"><h3>B. Files [Show]</h3></a>
+                        <a id="showb" href="#showb" class="show"><h3>B. Files [Hide]</h3></a>
+                        <div class="details">
+                            <h2>Files:</h2>
+                            <h3></h3>
+                            <ul>
+                                <li>Update these files:
+                                <ul>
+                                    <li>wuphala.py</li>
+                                    <li>ColorObj.py</li>
+                                </ul>
+                                <li>You will also need code files:
+                                <ul>
+                                    <li>pgl.py</li>
+                                    <li>colors.py</li>
+                                    <li>colors.py</li>
+                                </ul>
+                                <li>You will also need data files:
+                                <ul>
+                                    <li>rgbs.csv</li>
+                                    <li>imgs/</li>
+                                    <ul>
+                                        <li>rojo.png
+                                        <li>naranja.png
+                                        <li>amarillo.png
+                                        <li>blanco.png
+                                        <li>verde.png
+                                        <li>azul.png
+                                        <li>violeta.png</li>
+                                    </ul>
+                                </ul>
+                            </ul>
+                            <hr>
+                            <h2>Resources on PGL (Portable Graphics Library):</h2>
+                            <ul>
+                                <li><a href="https://jrembold.github.io/Website_Backup/class_files/cs151/PythonSummary.html">Prof. Jed Rembold notes on PGL (and more)</a>
+                                <li><a href="https://willamette.edu/~esroberts/python/pgldoc/">Prof. Eric Roberts notes on PGL</a>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <a id="hidec" href="#hidec" class="hide"><h3>C. Difficulty [Show]</h3></a>
+                        <a id="showc" href="#showc" class="show"><h3>C. Difficulty [Hide]</h3></a>
+                        <div class="details">
+                            <h2>Difficulty</h2>
+                            <p>This exam has been made of appropriate difficulty for students to achieve an honest assessment of their progress this term with access to all available resources. It is hard for me to forecast the appropriate difficulty so you should focus on doing your best and I will ensure you receive a fair grade.
+                            <p>Here is an example of a grading scale used for a similarly designed course at Cornell that I also used in CS 271 last year. If appropriate, I will apply a curve on final exam scores. 
+                            <center><img src="imgs/curve.png"></center>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div>
+                        <a id="hide0" href="#hide0" class="hide"><h3>0. get_color_at (10 pts) [Show]</h3></a>
+                        <a id="show0" href="#show0" class="show"><h3>0. get_color_at (10 pts) [Hide]</h3></a>
+                        <div class="details">
+                            <em><b>Implement</b></em> <code>__init__</code> <em><b>and</b></em> <code>get_color_at</code> <em><b>in</b></em> <code>ColorObj.py</code></b></em>
+                            <p>When you first download the template code and run "flag.py" you should get a 700 by 700 blank image. This is because the example code uses the color from ColorObj, and ColorObj is not yet implemented.
+                            <p>For Prob0, you should update <code>__init__</code> and <code>get_color_at</code> to return an appropriate color given some initializing name. These names should correspond to the colors included in color.py and are:
+                            <ul>
+                                <li>rojo
+                                <li>naranja
+                                <li>amarillo
+                                <li>blanco
+                                <li>verde
+                                <li>azul
+                                <li>violeta
+                            </ul>
+                            <p>For Prob0, create ColorObj for each of these colors that returns the appropriate integer color value found in <code>int_colors</code> from <code>get_color_at</code> for any row or color provided.
+                            <p>Here is an example:
+                            <hr><pre><code>roja = ColorObj("roja")
+print(roja.get_color_at(500,500)</code></pre><hr><pre><code>4292545043</code></pre><hr>
+                            <p><code>4292545043</code> is the decimal expression of <code>0xffdb0a13</code>, the integer value associated with <code>"rojo"</code> key in <code>int_colors</code>, a dictionary in <code>colors.py</code>.
+                            <p>You will be able to tell when you have correctly implement these two methods when your graphics window changes from the default white to the "rojo" color.
+                            <center><img src="imgs/rojo_only.png"></center>
+                        </div>
+                    </div>
+                    <hr>
+                        <div>
+                        <a id="hide1" href="#hide1" class="hide"><h3>1. <code>flag</code> (20 pts) [Show]</h3></a>
+                        <a id="show1" href="#show1" class="show"><h3>1. <code>flag</code> (20 pts) [Hide]</h3></a>
+                        <div class="details">
+                            <em><b>Implement</b></em> <code>flag</code> <em><b>in</b></em> <code>wuphala.py</code></em>
+                            <p>This is what the flag looks like:
+                            <center>
+                            <a title="Huhsunqu, Public domain, via Wikimedia Commons" ><img width="512" alt="Flag, representing the historical Qulla Suyu, designed in 1979 by Germán Choque Condori." src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Wiphala.svg/512px-Wiphala.svg.png?20120414085158"></a></center>
+                            <p>Specifically, this flag has it's longest diagonal in white, which corresponds to the "Qullasuyu" flag. We will enable other flags in Prob2. For this and all following problems, you should use your ColorObj's for each of the 7 flag colors that you made in Prob0. 
+                            <p>Loop over the pixels in the pixel array used within the <code>flag</code> function, and for each row-by-col location determine from which ColorObj the current pixel should be "got" with <code>get_color_at</code>. For example, in the very first top-left pixel, the "blanco" ColorObj would be appropriate, whereas in the top-right the "verde" ColorObj would be appropriate. 
+                            <p>There are both technically and algorithimically correct ways to do this. Note that in all cases colors occur in the same fixed order - either top-to-bottom or right-to-left - as provided in the <code>color_order</code> list in colors.py. Before implementing a brute force solution, you may wish to read Prob2.
+                            <p>You are ready to move onto the next problem when you have made the flag.
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <a id="hide2" href="#hide2" class="hide"><h3>2. Region (20 pts) [Show]</h3></a>
+                        <a id="show2" href="#show2" class="show"><h3>2. Region (20 pts) [Hide]</h3></a>
+                        <div class="details">
+                            <em><b>Implement the region argument to</b></em> <code>flag</code> <em><b>in</b></em> <code>wuphala.py</code></em>
+                            <p>The flag represents Indigenous people across what is today termed the "Andes", and the flag with long "blanco" diagonal often specifically represents the "Qullasuyu" region. There are other regions that have other colors on the long diagonal, but are otherwise identical. I have compiled a few in <code>region_colors</code> in <code>colors.py</code>
+                            <hr><pre><code>region_colors = {
+    "rojo":     "Chinchaysuyu",
+    "naranja":  "Katari",
+    "amarillo": "Kuntisuyu",
+    "blanco":   "Qullasuyu",
+    "verde":    "Antisuyu",
+    "azul":     "Katari",
+    "violeta":  "Katari"
+}</code></pre>
+                            <p>Update the <code>flag</code> function to accept any of these regions (or legendary figures, in the case of Katari). You are ready to move on when your code may produce the following:
+                            <table style="width:100%">
+                                <tr>
+                                    <th style="width:33%"><code>flag('Qullasuyu')</code></th>
+                                    <th style="width:33%"><code>flag('Antisuyu')</code></th>
+                                    <th style="width:33%"><code>flag('Chinchaysuyu')</code></th>
+                                </tr>
+                                <tr>
+                                    <th><img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Wiphala.svg"></th>
+                                    <th><img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Banner_of_the_Anti_Suyu.svg"></th>
+                                    <th><img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Banner_of_the_Chinchay_Suyu.svg"></th>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <a id="hide3" href="#hide3" class="hide"><h3>3. Pixel Array (30 pts) [Show]</h3></a>
+                        <a id="show3" href="#show3" class="show"><h3>3. Pixel Array (30 pts) [Hide]</h3></a>
+                        <div class="details">
+                            <em><b>Store images that correspond to colors rather than color data in</b></em> <code>ColorObj</code> <em><b>in</b></em> <code>ColorObj.py</code></em>
+                            <p>In brief, the flag colors represent aspects of Plurinational Andean life and I have chosen images from to represent these aspects as best as I can, which are included in the <code>imgs</code> folder with the starter code, named for the color to which the image corresponds.</code>
+                            <p>For this milestone, instead of returning a literal color value from the <code>ColorObj</code>, return a metaphorical color value from an image at the same row-by-col location.
+                            <ul>
+                                <li>Read these images from their files using <code>GImage</code>
+                                <li>Extract the pixel array from the <code>GImage</code> using <code>.get_pixel_array()</code>
+                                <li>3a. Crop the images to be squares, like the flag
+                                <li>3b. Resize the images to exactly fill the GWINDOW_SIZE
+                                <li>Update <code>get_color_at</code> to get a pixel from the image pixel array, rather than returning a single color in all cases.
+                            </ul>
+                            <p>You are not required to do 3a and 3b separately, and will receive the full 30 pts if your Prob3 is correct. However, if you struggle on Prob3, you may receive partial credit for these methods.
+                            <h4>3a. <code>square</code> (10 pts)</h4>
+                            <p>Each image in the <code>imgs</code> folder is wider than it is tall, and flag is not. For each pixel array, determine how much wider it is than tall, than remove pixels from the left and right to make it square and centered.
+                            <p><em>Example</em> <code>verde.png</code> shows a Bolivia lithium mine, "el símbolo de las riquezas naturales" (the symbol of the natural resources), that is 800 pixels wide and 448 pixels tall.
+                            <center><a title="Oton Barros (DSR/OBT/INPE), Coordenação-Geral de Observação da Terra/INPE, http://www.dsr.inpe.br, CC BY-SA 2.0 &lt;https://creativecommons.org/licenses/by-sa/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Lithium_mine_at_Bolivia%C2%B4s_Uyuni_Salt_Flat,_on_a_CBERS4_MUX_yesterday%C2%B4s_image.jpg"><img height="300" alt="Lithium mine at Bolivia´s Uyuni Salt Flat, on a CBERS4 MUX yesterday´s image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Lithium_mine_at_Bolivia%C2%B4s_Uyuni_Salt_Flat%2C_on_a_CBERS4_MUX_yesterday%C2%B4s_image.jpg/512px-Lithium_mine_at_Bolivia%C2%B4s_Uyuni_Salt_Flat%2C_on_a_CBERS4_MUX_yesterday%C2%B4s_image.jpg?20200409101456"></a></center>
+                            <p>By changing the corresponding pixel array, it is possible to create a pixel array that corresponds to the following, square image which is centered within the existing image.
+                            <p>My code created the following:
+                            <center><img height="300" src="imgs/square.png"></center>
+                            <h4>3b. <code>resize</code> (10 pts)</h4>
+                            <p>Note all of the images will be the exact size as our GWINDOW, but it would be nice if they were. There are many ways to solve this problem, here I will describe one.
+                            <p>One way to resize images is a pixel array of the appropriate size and loop over the entire array, selecting pixels from the original sized image that are in the same relative (e.g. percentage) distance across the image in height and width, but may have a different row-by-col location as the numbers of rows differs.
+                            <p>For example, the above image is 448 by 448 pixels, and there is a patch of teal in the center of the image, at around 200-250 by 200-250 pixels. In a 700 by 700 image, that teal patch should be around 300-350 pixels, or so.
+                            <h4>3. Finishing Touches</h4>
+                            <em>Of note, you can test squaring and resizing separately prior to this step by simply displaying the pixel arrays as GImages in the GWindow</em>
+                            <p>Once you have pixel arrays that correspond to images within your <code>ColorObj</code>'s, running <code>flag.py</code> should produce an image something like this:
+                            <center><img src="imgs/naive.png"></center>
+                            <p>Note the diagonal showing people in labcoats - these are engineers of UMSA, the leading public university in Bolivia, and represent "el desarrollo de la ciencia y la tecnología" (scientific and technologically progress). You can likely also identify the lithium mine.
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <a id="hide4" href="#hide4" class="hide"><h3>4. ColorScale (20 pts) [Show]</h3></a>
+                        <a id="show4" href="#show4" class="show"><h3>4. ColorScale (20 pts) [Hide]</h3></a>
+                        <div class="details">
+                            <em><b>Implement</b></em> <code>colorscale</code> <em><b>in</b></em> <code>ColorObj</code> <em><b>in</b></em> <code>ColorObj.py</code></em>
+                            <p>Our new image does not look so much like the flag we started with, so we will use the same idea as ImageShop.GrayscaleImage to take colorful images and make them look like one color - but in this case, flag colors rather than simply gray.
+                            <p>For this milestone, instead of returning a literal color value from the <code>ColorObj</code>, return a metaphorical color value from an image at the same row-by-col location.
+                            <ul>
+                                <li>Read the rgb (red, green, blue) colors from rbgs.csv using <code>read_rgbs</code>
+                                <ul>
+                                    <li>4a. Write <code>read_rgbs</code> much the way similar functions were written on Adventure.
+                                </ul>
+                                <li>Implement <code>colorscale</code>
+                                <ul>
+                                    <li>For every pixel in a pixel array, calculate the luminence.
+                                    <li>Given the luminence, calculate a red, green, and blue value
+                                    <li>The brightest value (255) should be the color of the ColorObj
+                                    <li>The darkest value (0) should be [0, 0, 0].
+                                    <li>Convert these rgb values back to a pixel value with <code>GImage.create_rgb_pixel</code>
+                                </ul>
+                            </ul>
+                            <p>You are not required to do 4a separately, and will receive the full 20 pts if your Prob4 is correct. However, if you struggle on Prob2, you may receive partial credit for this function.
+                            <h4>4a. <code>read_rgbs</code> (10 pts)</h4>
+                            <p>Study the <code>rgbs.csv</code> file provided and determine how to read it into flag.py.
+                            <p>You may wish to add an additional argument to the <code>ColorObj</code> initializer that takes a list of rgb values - I did.
+                            <p><em>Example</em> <code>verde.png</code> shows a Bolivia lithium mine, "el símbolo de las riquezas naturales" (the symbol of the natural resources), that is 800 pixels wide and 448 pixels tall.
+                            <h4>4. Finishing Touches</h4>
+                            <em>Of note, you can test read_rgbs and colorscale separately.</em>
+                            <p>Once you have read in rgb values and colorscale the pixel arrays within each ColorObj, your code should produce an image like the following - here with the "Qullasuyu" flag again:
+                            <center><img src="imgs/colorscaled.png"></center>
+                            <p>Such an image is indicative of a perfect score on the final exam. Well done! Turn in your code and have a wonderful break.
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="height:1in;"> <!-- Vertical space adjuster for box shadow --></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
