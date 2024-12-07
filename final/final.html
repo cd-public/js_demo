@@ -341,7 +341,7 @@ the flag we started with, so we will use the same idea as
 ImageShop.GrayscaleImage to take colorful images and make them look like
  one color - but in this case, flag colors rather than simply gray.
                             </p>
-                            </p><ul><li>Implement <code>colorscale</code>
+                            </p><ul><li>Implement <code>colorscale</code> (10pts)
                                 <ul>
                                     <li>For every pixel in a pixel array, calculate the luminence.
                                     </li><li>Given the luminence, calculate a red, green, and blue value
@@ -353,6 +353,8 @@ ImageShop.GrayscaleImage to take colorful images and make them look like
                                     </li><li>The darkest value (0) should be [0, 0, 0] (black) in all cases.
                                     </li><li>Convert these rgb values back to a pixel value with <code>GImage.create_rgb_pixel</code>
                                 </li></ul>
+                                <li>Apply <code>colorscale</code> to pixel maps within the initializer.
+                                <li>Ensure <code>flag.py</code> correctly displays colorscaled images (10pts)
                             </li></ul>
                             <em>Of note, the colorscale will be equivalent to "grayscale" for the color "blanco" (white).</em>
                             
@@ -361,6 +363,15 @@ colorscaled the pixel arrays within each ColorObj, your code should
 produce an image like the following:
                             </p><center><img src="imgs/colorscaled.png"></center>
                             <p>Such an image is indicative of a perfect score on the final exam. Well done! Turn in your code and have a wonderful break.
+                        </p></div>
+                    </div>
+                    <hr>
+                    <div>
+                        <a id="hide5" href="#hide5" class="hide"><h3>Extra Credit (5 pts) [Show]</h3></a>
+                        <a id="show5" href="#show5" class="show"><h3>Extra Credit (5 pts) [Hide]</h3></a>
+                        <div class="details">
+                            <p>Fill out this survey on sections for +5 extra credit.  <a href="https://docs.google.com/forms/d/e/1FAIpQLScOWqXta_3JlJyFUBZx7RGgxQ_hTxcZAafQqPhDcfBUQbe6hg/viewform">Link.</a>
+                            <p>Extra credit for faculty candidate talks was previously announced.
                         </p></div>
                     </div>
                     <hr>
